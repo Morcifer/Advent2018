@@ -13,6 +13,7 @@ fn parse_data(file_path: String) -> Vec<i32> {
         .collect()
 }
 
+#[allow(dead_code)]
 pub fn run(file_path: String, part: i32) -> i32 {
     match part {
         1 => part_1(file_path),

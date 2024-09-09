@@ -2,9 +2,9 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 
-pub fn get_file_path(is_test: bool, day: u32, suffix: Option<&str>) -> String {
+pub fn get_file_path(is_test: bool, day: u32, suffix: Option<String>) -> String {
     let sub_folder = if is_test { "test" } else { "real" };
-    let suffix = suffix.unwrap_or("");
+    let suffix = if let Some(suffix) = suffix { format!("_{suffix}") } else { String::new() };
     format!("./data/{sub_folder}/day_{day}{suffix}.txt")
 }
 
